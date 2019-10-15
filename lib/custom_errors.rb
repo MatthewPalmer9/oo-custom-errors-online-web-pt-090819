@@ -12,13 +12,16 @@ class Person
         raise PartnerError
       rescue PartnerError => error
         puts error.message
-      end 
+      end
     else
       person.partner = self
     end
   end
 
   class PartnerError < StandardError
+    def message
+      "You must give the 'get_married' method an argument of an instance of the person class!"
+    end
   end
 end
 
